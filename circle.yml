@@ -18,6 +18,7 @@ deployment:
     owner: jhersh
     commands:
       - git add readme.md
-      - git config --global user.name 'CircleCI'
+      - git config --global user.name 'CircleCI README Robot'
+      - git config --global user.email 'jhersh@users.noreply.github.com'
       - git commit -m "[README] playground list update [ci skip]" || exit 0
       - git push origin $CIRCLE_BRANCH
