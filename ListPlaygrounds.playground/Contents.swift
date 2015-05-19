@@ -56,7 +56,8 @@ if let enumerator = fileManager.enumeratorAtPath(fileManager.currentDirectoryPat
         if Playground.pathIsPlayground(file) {
             let playground = Playground(path: file)
             description += "### " + playground.playgroundName() + "\n"
-            description += (playground.headerDesc() ?? "") + "\n\n"
+            description += (playground.headerDesc() ?? "") + "\n"
+            description += "Run it: `xcrun swift \(playground.playgroundName())/Contents.swift`\n\n"
         }
     }
 }

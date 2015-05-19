@@ -18,5 +18,6 @@ deployment:
     owner: jhersh
     commands:
       - git add readme.md
+      - git config --global user.name 'CircleCI'
       - git commit -m "[README] Playground list update [ci skip]"
       - git push origin master
