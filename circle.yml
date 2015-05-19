@@ -19,5 +19,5 @@ deployment:
     commands:
       - git add readme.md
       - git config --global user.name 'CircleCI'
-      - git commit -m "[README] Playground list update [ci skip]"
-      - git push origin master
+      - git commit -m "[README] playground list update [ci skip]" || exit 0
+      - git push origin $CIRCLE_BRANCH
