@@ -1,0 +1,17 @@
+machine:
+  xcode:
+    version: 6.3.1
+dependencies:
+  override:
+    - exit 0
+test:
+  override:
+    - rake desc
+deployment:
+  readme:
+    branch: master
+    owner: jhersh
+    commands:
+      - git add readme.md
+      - git commit -m "[README] Playground list update [ci skip]"
+      - git push origin master
