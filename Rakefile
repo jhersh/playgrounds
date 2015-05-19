@@ -1,6 +1,6 @@
 
 desc 'Fetches descriptions of all playgrounds and updates the readme'
-task :desc do
+task :readme do
   descs = `xcrun swift ListPlaygrounds.playground/Contents.swift`.chomp!
   
   readme = File.read('readme.md')
