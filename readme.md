@@ -9,7 +9,7 @@ List all playground projects' comments in the current working folder. Pulls out 
 Run it: `xcrun swift ListPlaygrounds.playground/Contents.swift`
 
 ### SwiftSpace.playground
-Strip trailing whitespace from all .h, .m, and .swift source files in the current directory and recursive subdirectories.
+Strip trailing whitespace from all `.h`, `.m`, and `.swift` source files in the current directory and recursive subdirectories.
 
 Run it: `xcrun swift SwiftSpace.playground/Contents.swift`
 
