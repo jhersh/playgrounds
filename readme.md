@@ -5,9 +5,11 @@ A collection of fun Swifty playgrounds. In fact, the below list of Playgrounds w
 ## Playground List
 ### ListPlaygrounds.playground
 List all playground projects' comments in the current working folder. Pulls out comments starting from the first line in the file until a non-comment line is encountered.
+
 Run it: `xcrun swift ListPlaygrounds.playground/Contents.swift`
 
 ### SwiftSpace.playground
 Strip trailing whitespace from all source files in the current directory and recursive subdirectories.
+
 Run it: `xcrun swift SwiftSpace.playground/Contents.swift`
 
