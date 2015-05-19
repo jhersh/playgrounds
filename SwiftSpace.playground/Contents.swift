@@ -1,5 +1,5 @@
-// Strip trailing whitespace from all .h, .m, and .swift source files in the current directory
-// and recursive subdirectories.
+//: Strip trailing whitespace from all `.h`, `.m`, and `.swift` source files in the current directory
+//: and recursive subdirectories.
 
 import Cocoa
 

@@ -6,7 +6,7 @@ import Cocoa
 
 struct Playground {
     let filePath: String
-    let nonCommentCharacters = NSCharacterSet(charactersInString: "/* ").invertedSet
+    let nonCommentCharacters = NSCharacterSet(charactersInString: "/*: ").invertedSet
     
     init(path: String) {
         self.filePath = path
