@@ -19,3 +19,15 @@ task :readme do
     file.write allLines.join("\n")
   }
 end
+
+desc 'Tests the quine'
+task :test do
+  
+  quine = `xcrun swift Squine.playground/Contents.swift`.chomp!  
+  quinesrc = File.read('Squine.playground/Contents.swift')
+  
+  raise if quine != quinesrc
+  
+  puts "Quine test passed!"
+  
+end

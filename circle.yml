@@ -11,6 +11,8 @@ dependencies:
     - exit 0
 test:
   override:
+    - rake test
+  post:
     - rake readme
 deployment:
   readme:
