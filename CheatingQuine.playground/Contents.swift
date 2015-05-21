@@ -1,4 +1,4 @@
-//: A cheating quine (https://en.wikipedia.org/wiki/Quine_(computing)) in Swift
+//: A cheating [quine](https://en.wikipedia.org/wiki/Quine_(computing)) in Swift.
 //: When executed, produces its own source code, including comments, as its only output.
 //: This quine cheats by reading its own source from disk.
 

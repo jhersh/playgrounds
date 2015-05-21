@@ -4,6 +4,22 @@
 
 import Cocoa
 
+extension String {
+    private static let commentCharacters = NSCharacterSet(charactersInString: "/*: ")
+    
+    func isCommentLine() -> Bool {
+        return count(self) > 0 && String.commentCharacters.characterIsMember((self as NSString).characterAtIndex(0))
+    }
+    
+    func commentText() -> String? {
+        if let textRange = rangeOfCharacterFromSet(String.commentCharacters.invertedSet, options: .LiteralSearch, range: nil) {
+            return substringFromIndex(textRange.startIndex)
+        }
+        
+        return nil
+    }
+}
+
 struct Playground {
     let filePath: String
     let nonCommentCharacters = NSCharacterSet(charactersInString: "/*: ").invertedSet
@@ -16,7 +32,7 @@ struct Playground {
         return path.hasSuffix(".playground")
     }
     
-    nonmutating func playgroundName() -> String {
+    func playgroundName() -> String {
         return filter(split(self.filePath, maxSplit: 0, allowEmptySlices: true, isSeparator: {
             (bit: Character) -> Bool in
             return bit == "/"
@@ -33,11 +49,11 @@ struct Playground {
                 var desc = ""
                 
                 contents.enumerateLinesUsingBlock { (line, stop) in
-                    if count(line) > 0,
-                        let firstCommentCharacter = line.rangeOfCharacterFromSet(self.nonCommentCharacters, options: .LiteralSearch, range: nil) {
-                            desc += line.substringFromIndex(firstCommentCharacter.startIndex).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) + " "
+                    if line.isCommentLine(),
+                        let text = line.commentText() {
+                        desc += text + " "
                     } else {
-                        stop.memory = true
+                        stop.initialize(true)
                     }
                 }
 
