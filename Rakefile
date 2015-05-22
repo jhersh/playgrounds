@@ -20,14 +20,18 @@ task :readme do
   }
 end
 
-desc 'Tests the quine'
+desc 'Tests the quines'
 task :test do
   
-  quine = `xcrun swift Squine.playground/Contents.swift`.chomp!  
-  quinesrc = File.read('Squine.playground/Contents.swift')
-  
-  raise if quine != quinesrc
-  
-  puts "Quine test passed!"
-  
+  [ 'Squine', 'CheatingQuine' ].each do |quine|
+    puts "Testing #{quine}..."
+    
+    quinePath = "#{quine}.playground/Contents.swift"
+    quineOut = `xcrun swift #{quinePath}`.chomp!  
+    quineSrc = File.read(quinePath)
+    
+    raise if quineOut != quineSrc
+    
+    puts "#{quine} passed!"
+  end  
 end
